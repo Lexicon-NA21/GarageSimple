@@ -88,6 +88,8 @@ namespace MyGarage
 
         public T[] FindByString(string keyword)
         {
+           // return _spaces.Where(vi => vi.Matches(keyword)).ToArray();
+
             Dictionary<string, Vehicle> vehicles = new Dictionary<string, Vehicle>();
 
             for (int i = 0; i < _spaces.Length; i++)
@@ -135,7 +137,7 @@ namespace MyGarage
             using (FileStream fs = new FileStream(filePath, FileMode.Open))
             {
                 BinaryFormatter formatter = new BinaryFormatter();
-                vehicles = (Garage<Vehicle>)formatter.Deserialize(fs);                
+                vehicles = (Garage<Vehicle>)formatter.Deserialize(fs);      
             }
             return vehicles;
         }

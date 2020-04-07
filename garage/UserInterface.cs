@@ -268,6 +268,7 @@ namespace MyGarage
                 if (input.Length > 0)
                 {
                     vehicles = _garageManager.FindVehicleByType(input);
+                   // Array.ForEach(vehicles, v => Console.WriteLine(v));
                     if (vehicles.Length > 0)
                         foreach (var vehicle in vehicles)
                             Console.WriteLine(vehicle);

@@ -5,12 +5,12 @@ using System.Runtime.Serialization;
 
 namespace MyGarage
 {
-    class GarageManager
+    class GarageManager 
     {
         Garage<Vehicle> _garage;
         public Garage<Vehicle> Garage
         {
-            get{ return _garage; } // Inte bra
+            get { return _garage; } // Inte bra
         }
 
         public GarageManager(int size)
@@ -35,11 +35,13 @@ namespace MyGarage
 
         public Vehicle FindVehicleByRegNum(string regNum)
         {
+            //var vehicle = _garage.FirstOrDefault(v => v.RegNum == regNum);
             return _garage.FindByRegNum(regNum);
         }
 
         public Vehicle[] FindVehicleByType(string type)
         {
+           // var r = _garage.Where(v => v.GetType().Name == type).ToArray();
             List<Vehicle> result = new List<Vehicle>();
             foreach (Vehicle v in _garage)
                 if (v.GetType().Name == type)
@@ -66,8 +68,8 @@ namespace MyGarage
         {
             Vehicle[] vehicle = _garage.GetAll();
             string[] result = new string[vehicle.Length];
-            for( int i = 0; i < vehicle.Length; i++)
-                if(vehicle[i] == null)
+            for (int i = 0; i < vehicle.Length; i++)
+                if (vehicle[i] == null)
                     result[i] = string.Format("P-plats {0} är tom.", i + 1);
                 else
                     result[i] = string.Format("P-plats {0}: {1}", i + 1, vehicle[i]);
@@ -87,7 +89,7 @@ namespace MyGarage
                 if (vehicle[i] != null)
                 {
                     string typeName = vehicle[i].GetType().Name;
-                    if(types.ContainsKey(typeName))
+                    if (types.ContainsKey(typeName))
                         types[typeName] += 1;
                     else
                         types[typeName] = 1;
