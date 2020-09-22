@@ -78,7 +78,7 @@ namespace MyGarage
 
         public T[] GetAll() 
         {
-            return _spaces.ToArray(); // Aj aj!
+            return _spaces.ToArray(); 
         }
 
         public int Count()
@@ -88,8 +88,6 @@ namespace MyGarage
 
         public T[] FindByString(string keyword)
         {
-           // return _spaces.Where(vi => vi.Matches(keyword)).ToArray();
-
             Dictionary<string, Vehicle> vehicles = new Dictionary<string, Vehicle>();
 
             for (int i = 0; i < _spaces.Length; i++)

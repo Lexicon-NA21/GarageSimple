@@ -7,10 +7,10 @@ namespace MyGarage
 {
     class GarageManager 
     {
-        Garage<Vehicle> _garage;
+        private Garage<Vehicle> _garage;
         public Garage<Vehicle> Garage
         {
-            get { return _garage; } // Inte bra
+            get { return _garage; } 
         }
 
         public GarageManager(int size)
@@ -25,6 +25,7 @@ namespace MyGarage
 
         public bool DriveOut(string regNum)
         {
+            //var find = _garage.FirstOrDefault(v => v.RegNum == regNum);
             return _garage.Remove(regNum);
         }
 
@@ -35,13 +36,12 @@ namespace MyGarage
 
         public Vehicle FindVehicleByRegNum(string regNum)
         {
-            //var vehicle = _garage.FirstOrDefault(v => v.RegNum == regNum);
             return _garage.FindByRegNum(regNum);
         }
 
         public Vehicle[] FindVehicleByType(string type)
         {
-           // var r = _garage.Where(v => v.GetType().Name == type).ToArray();
+            //return _garage.Where(v => v.GetType().Name == type).ToArray();
             List<Vehicle> result = new List<Vehicle>();
             foreach (Vehicle v in _garage)
                 if (v.GetType().Name == type)
@@ -55,7 +55,7 @@ namespace MyGarage
             Vehicle[] vehicle = _garage.ToArray();
             string[] result = new string[_garage.Count()];
 
-            var vehicles = _garage.Where(v => v != null);
+           // var vehicles = _garage.Where(v => v != null);
 
             for (int i = 0; i < vehicle.Length; i++)
                 if (vehicle[i] != null)
